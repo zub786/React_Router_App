@@ -9,7 +9,10 @@ import Dashboard from "./components/admin/dashboard";
 import ProductDetails from "./components/productDetails";
 import NotFound from "./components/notFound";
 import "./App.css";
-import {Movies} from './components/movies';
+import Movies from './components/movies';
+import Rentals from './components/rentals';
+import Customers from './components/customers';
+import MovieDetails from './components/movieDetails';
 
 class App extends Component {
   render() {
@@ -17,24 +20,26 @@ class App extends Component {
       <div>
         <NavbarMovies />
         <div className="content">
+            
           <Switch>
-            {/* <Route path='/products/:id' component={ProductDetails} />
+            <Route path="/posts/:year?/:month?" component={Posts} />
+            <Route path="/movies" Component={Movies} />
+            <Route path="/customers" Component={Customers} />
+            <Route path="/rentals" Component={Rentals} />
+            <Route path='/products/:id' component={ProductDetails} />
+            <Route path='movie/details/:title' component={MovieDetails} />
             <Route
               path="/products"
               render={props => <Products sortBy="newest" {...props} />}
             />
-            <Route path="/posts/:year?/:month?" component={Posts} />
+
             <Route path="/admin" component={Dashboard} />
             <Redirect from="/messages" to="/posts" />
             <Route path="/not-found" component={NotFound} />
             <Route path="/" exact component={Home} />
-            <Redirect to="/not-found" /> */}
-            <Route path="/admin" component={Dashboard} />
-            <Route path="/admin2" Component={Movies} />
-
-
 
           </Switch>
+
         </div>
       </div>
     );

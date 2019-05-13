@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ListGroup from './listGroup'
 import MoviesTable from './moviesTable'
-export class Movies extends Component {
+export default class Movies extends Component {
   state = {
     movies: [],
     generes: [],

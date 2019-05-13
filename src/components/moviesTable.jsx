@@ -3,6 +3,7 @@ import Like from './common/like';
 import {Paginate} from '../utils/paginate';
 import Pagination from './common/pagination';
 import _ from 'lodash'
+import { Link } from "react-router-dom";
 
 class MoviesTable extends Component {
 
@@ -54,7 +55,7 @@ class MoviesTable extends Component {
                {movies.map(m => (
                  <tr key={m.id}>
                    <td>{m.id}</td>
-                   <td>{m.title}</td>
+                   <td><Link to={`movie/details/${m.title}`}> {m.title} </Link> </td>
                    <td>{m.genre}</td>
                    <td>{m.stock}</td>
                    <td>{m.rate}</td>
