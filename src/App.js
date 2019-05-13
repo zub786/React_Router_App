@@ -9,6 +9,7 @@ import Dashboard from "./components/admin/dashboard";
 import ProductDetails from "./components/productDetails";
 import NotFound from "./components/notFound";
 import "./App.css";
+import {Movies} from './components/movies';
 
 class App extends Component {
   render() {
@@ -28,6 +29,11 @@ class App extends Component {
             <Route path="/not-found" component={NotFound} />
             <Route path="/" exact component={Home} />
             <Redirect to="/not-found" /> */}
+            <Route path="/admin" component={Dashboard} />
+            <Route path="/admin2" Component={Movies} />
+
+
+
           </Switch>
         </div>
       </div>

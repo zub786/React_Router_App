@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ListGroup from './listGroup'
 import MoviesTable from './moviesTable'
-export class Movie extends Component {
+export class Movies extends Component {
   state = {
     movies: [],
     generes: [],
@@ -59,6 +59,7 @@ export class Movie extends Component {
       this.setState({selectedGenere: genere, currentPage: 1});
   };
   render() {
+    debugger;
     const { pageSize, currentPage,
        movies: allMovies, selectedGenere, sortColumn } = this.state;
     return (
@@ -90,4 +91,3 @@ export class Movie extends Component {
     );
   }
 }
- 
