@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "./components/navbar";
+import NavbarMovies from "./components/navbarMovies";
 import Products from "./components/products";
 import Posts from "./components/posts";
 import Home from "./components/home";
@@ -13,10 +14,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavbarMovies />
         <div className="content">
           <Switch>
-            <Route path='/products/:id' component={ProductDetails} />
+            {/* <Route path='/products/:id' component={ProductDetails} />
             <Route
               path="/products"
               render={props => <Products sortBy="newest" {...props} />}
@@ -26,7 +27,7 @@ class App extends Component {
             <Redirect from="/messages" to="/posts" />
             <Route path="/not-found" component={NotFound} />
             <Route path="/" exact component={Home} />
-            <Redirect to="/not-found" />
+            <Redirect to="/not-found" /> */}
           </Switch>
         </div>
       </div>

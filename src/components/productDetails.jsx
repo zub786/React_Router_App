@@ -11,7 +11,7 @@ class ProductDetails extends Component {
     return (
       <div>
         <h1>Product Details - {this.props.match.params.id} </h1>
-        <button onClick={this.handleSave}>Save</button>
+        <button className="btn btn-default" onClick={this.handleSave}>Save</button>
       </div>
     );
   }
