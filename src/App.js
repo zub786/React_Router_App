@@ -20,14 +20,23 @@ class App extends Component {
       <div>
         <NavbarMovies />
         <div className="content">
-            
           <Switch>
             <Route path="/posts/:year?/:month?" component={Posts} />
-            <Route path="/movies" Component={Movies} />
-            <Route path="/customers" Component={Customers} />
+            <Route
+              path="/movies"
+              render={props => <Movies sortBy="newest" {...props} />}
+            />
+            <Route
+              path="/rentals"
+              render={props => <Rentals isActive="true" {...props} />}
+            />
+            <Route path="/customers" component={Customers} />
             <Route path="/rentals" Component={Rentals} />
             <Route path='/products/:id' component={ProductDetails} />
-            <Route path='movie/details/:title' component={MovieDetails} />
+            <Route
+              path='movie/details/:title'
+              render={props => <MovieDetails {...props} />}
+            />
             <Route
               path="/products"
               render={props => <Products sortBy="newest" {...props} />}
@@ -36,10 +45,9 @@ class App extends Component {
             <Route path="/admin" component={Dashboard} />
             <Redirect from="/messages" to="/posts" />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact component={Movies} />
 
           </Switch>
-
         </div>
       </div>
     );
