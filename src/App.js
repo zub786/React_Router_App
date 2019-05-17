@@ -13,6 +13,7 @@ import Movies from './components/movies';
 import Rentals from './components/rentals';
 import Customers from './components/customers';
 import MovieDetails from './components/movieDetails';
+import LoginPage from './components/loginPage';
 
 class App extends Component {
   render() {
@@ -24,14 +25,16 @@ class App extends Component {
             <Route path="/posts/:year?/:month?" component={Posts} />
             <Route
               path="/movies"
-              render={props => <Movies sortBy="newest" {...props} />}
+              component={Movies}
             />
             <Route
               path="/rentals"
               render={props => <Rentals isActive="true" {...props} />}
             />
-            <Route path="/customers" component={Customers} />
-            <Route path="/rentals" Component={Rentals} />
+            <Route
+              path="/customers"
+              render={props => <Customers isActive="true" {...props} />}
+            />
             <Route path='/products/:id' component={ProductDetails} />
             <Route
               path='movie/details/:title'
@@ -41,7 +44,7 @@ class App extends Component {
               path="/products"
               render={props => <Products sortBy="newest" {...props} />}
             />
-
+            <Route path="/login" component={LoginPage} />
             <Route path="/admin" component={Dashboard} />
             <Redirect from="/messages" to="/posts" />
             <Route path="/not-found" component={NotFound} />
