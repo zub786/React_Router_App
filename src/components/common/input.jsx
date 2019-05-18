@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-const Input = ({fieldName, value, label, OnChange}) => {
+const Input = ({fieldName, value, label, OnChange, error}) => {
     return ( 
-        <div className="form-group">
+        <React.Fragment>
+            <div className="form-group">
         <label htmlFor={fieldName}> {label} </label>
         <input 
         value={value} 
@@ -10,7 +11,9 @@ const Input = ({fieldName, value, label, OnChange}) => {
         id={fieldName} 
         type="text" 
         className="form-control" />
+        {error && <div className="alert alert-danger">{error}</div>}
         </div>
+            </React.Fragment>
      );
 }
  
