@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './common/input';
+import Joi from 'joi-browser';
 class LoginPage extends Component {
     username = React.createRef();
     // componentDidMount(){
@@ -9,8 +10,17 @@ class LoginPage extends Component {
         account:{username:"", password:""},
         errors:{username: "", password:""}
     };
+
+    // Defining schema/Set of validation for this(Login Form) form
+
+    schema = {
+        username: Joi.string().required().label('Username'),
+        password: Joi.string().required().label('Password')
+    };
+
     handleSubmit = e => {
         e.preventDefault();
+        
         //  Calling Server
        const errors = this.validate();
        console.log(errors);
@@ -23,25 +33,18 @@ class LoginPage extends Component {
     validate = () => {
         const { account } = this.state;
         const errors = {};
-
-        if (account.username.trim() === '')
-            errors.username = 'UserName is required.';
-
-        if (account.password.trim() === '')
-            errors.password = 'Password is required.';
-        
-            return Object.keys(errors).length === 0? null: errors;
+        const valResult = Joi.validate(this.state.account, this.schema, {abortEarly: false});
+        if(!valResult.error) return null;
+        for(let item of valResult.error.details) errors[item.path[0]] = item.message;
+            return errors;
     };
 
     validateProperty = ({name, value}) => {
-        const { account } = this.state;
-        const errors = {};
-        if (name === 'username') {
-            if (value.trim() === '') return "Username is required";
-        }
-        if (name === 'password') {
-            if (value.trim() === '') return "Password is required";
-        }
+        debugger;
+        const obj = {[name]: value};
+        const objSchema = {[name]: this.schema[name]};
+        const {error} = Joi.validate(obj, objSchema);
+        return error? error.details[0].message: null;
     };
 
     handleChange = ({currentTarget: input}) => {
