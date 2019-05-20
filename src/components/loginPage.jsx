@@ -74,7 +74,9 @@ class LoginPage extends Component {
                         value={account.password}
                         fieldName="password"
                         error={errors.password} />
-                    <button className="btn btn-primary">Login</button>
+                    <button 
+                    disabled={this.validate()}
+                    className="btn btn-primary">Login</button>
                 </form>
             </div>
         );
