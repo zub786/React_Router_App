@@ -14,7 +14,7 @@ import Rentals from './components/rentals';
 import Customers from './components/customers';
 import MovieDetails from './components/movieDetails';
 import LoginPage from './components/loginPage';
-
+import Registration from './components/registration';
 class App extends Component {
   render() {
     return (
@@ -44,6 +44,7 @@ class App extends Component {
               path="/products"
               render={props => <Products sortBy="newest" {...props} />}
             />
+            <Route path="/register" component={Registration} />
             <Route path="/login" component={LoginPage} />
             <Route path="/admin" component={Dashboard} />
             <Redirect from="/messages" to="/posts" />
