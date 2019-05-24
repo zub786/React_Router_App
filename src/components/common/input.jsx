@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-const Input = ({fieldName, value, label, OnChange, error}) => {
+const Input = ({fieldName, label, OnChange, error, ...rest}) => {
     return ( 
         <React.Fragment>
             <div className="form-group">
         <label htmlFor={fieldName}> {label} </label>
-        <input 
-        value={value} 
+        <input  
+        
         name={fieldName} 
+        id={fieldName}
         onChange={OnChange}  
-        id={fieldName} 
-        type="text" 
+        {...rest}
         className="form-control" />
         {error && <div className="alert alert-danger">{error}</div>}
         </div>

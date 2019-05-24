@@ -21,26 +21,14 @@ class LoginPage extends Form {
     };
 
     render() { 
-        const {data, errors} = this.state;
         return (
             <div>
                 <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <Input
-                        label="User Name"
-                        OnChange={this.handleChange}
-                        value={data.username}
-                        fieldName="username"
-                        error={errors.username} />
-                    <Input
-                        label="Password"
-                        OnChange={this.handleChange}
-                        value={data.password}
-                        fieldName="password"
-                        error={errors.password} />
-                    <button 
-                    disabled={this.validate()}
-                    className="btn btn-primary">Login</button>
+                    {this.renderInput('username', 'Username')}
+                    {this.renderInput('password', 'Password', 'password')}
+                    
+                    {this.renderButton('Login')}
                 </form>
             </div>
         );
