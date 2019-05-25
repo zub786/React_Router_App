@@ -12,29 +12,8 @@ export default class Movies extends Component {
 
   componentDidMount() {
     this.setState({
-      movies: [
-        { id: 1, title: "abc", genre: "Action", stock: 200, rate: 3.5 },
-        { id: 2, title: "eee", genre: "Comedy", stock: 230, rate: 1.5 },
-        { id: 3, title: "dee", genre: "Technology", stock: 220, rate: 3.5 },
-        { id: 4, title: "sdsd", genre: "Action", stock: 205, rate: 6.5 },
-        {
-          id: 5,
-          title: "dede",
-          genre: "Technology",
-          stock: 202,
-          rate: 6.5
-        },
-        { id: 6, title: "jhk", genre: "Comedy", stock: 223, rate: 3.5 },
-        { id: 7, title: "dgr", genre: "Technology", stock: 256, rate: 3.5 },
-        { id: 8, title: "ewd", genre: "Science", stock: 453, rate: 2.5 }
-      ],
-      generes: [
-        { text: "All Genre", id: "" },
-        { text: "Action", id: 1 },
-        { text: "Comedy", id: 2 },
-        { text: "Technology", id: 3 },
-        { text: "Science", id: 4 }
-      ]
+      movies: this.props.movies,
+      generes: this.props.geners
     });
   }
 
@@ -75,6 +54,10 @@ export default class Movies extends Component {
             selectedItem={selectedGenere} />
           </div>
           <div className="col-md-9">
+          <div className="col-md-12">
+          <a href="movie/new" className="btn btn-primary">Add New</a>
+          <hr/>
+          </div>
             <MoviesTable 
             movies={this.state.movies} 
             OnLike={this.handleToggleLike} 

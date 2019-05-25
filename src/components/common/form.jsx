@@ -10,13 +10,14 @@ class Form extends Component {
      handleSubmit = e => {
         e.preventDefault();
         
+        console.log(this.state);
         //  Calling Server
        const errors = this.validate();
        console.log(errors);
         this.setState({errors: errors || {}});
         if(errors)
         return;
-        this.doSubmit();
+        this.doSubmit(e);
     };
 
     validate = () => {

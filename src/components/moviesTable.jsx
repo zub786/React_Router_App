@@ -55,7 +55,7 @@ class MoviesTable extends Component {
                {movies.map(m => (
                  <tr key={m.id}>
                    <td>{m.id}</td>
-                   <td><Link to={`movie/details/${m.title}`}> {m.title} </Link> </td>
+                   <td><Link to={`/movie/details/${m.id}`}> {m.title} </Link> </td>
                    <td>{m.genre}</td>
                    <td>{m.stock}</td>
                    <td>{m.rate}</td>
