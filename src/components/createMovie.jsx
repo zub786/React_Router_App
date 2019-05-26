@@ -24,7 +24,7 @@ class CreateMovie extends Form {
         let lastId = movies[movies.length - 1].id;
         movie.id = lastId + 1;
         movies.push(movie);
-        this.props.OnAdd(movies);
+        this.props.OnAddUpdate(movies);
         this.props.history.push('/movies');
         
     };

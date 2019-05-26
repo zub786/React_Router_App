@@ -11,6 +11,7 @@ export default class Movies extends Component {
   };
 
   componentDidMount() {
+    debugger;
     this.setState({
       movies: this.props.movies,
       generes: this.props.geners

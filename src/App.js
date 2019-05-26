@@ -37,9 +37,9 @@ class App extends Component {
     ]
   };
   
-  addMovie = updatedMovie => {
+  addUpdateMovie = updatedMovies => {
     debugger;
-    this.setState({updatedMovie});
+    this.setState({movies: updatedMovies});
     
   }
   render() {
@@ -52,7 +52,7 @@ class App extends Component {
             <Route
               path="/movie/new"
               render={props => <CreateMovie 
-              OnAdd={this.addMovie} 
+              OnAddUpdate={this.addUpdateMovie} 
               movies={this.state.movies}
               geners={this.state.geners} {...props} />}
               exact />}
@@ -73,8 +73,11 @@ class App extends Component {
             />
             <Route path='/products/:id' component={ProductDetails} />
             <Route
-              path='/movie/details/:title?'
-              render={props => <MovieDetails {...props} />}
+              path='/movie/details/:id?'
+              render={props => <MovieDetails 
+                movies={this.state.movies} 
+                OnAddUpdate={this.addUpdateMovie} 
+                {...props} />}
             />
             <Route
               path="/products"

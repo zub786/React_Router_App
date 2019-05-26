@@ -21,6 +21,7 @@ class Form extends Component {
     };
 
     validate = () => {
+        debugger;
         const { data } = this.state;
         const errors = {};
         const valResult = Joi.validate(this.state.data, this.schema, {abortEarly: false});
